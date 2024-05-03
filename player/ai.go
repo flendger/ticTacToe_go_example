@@ -11,9 +11,9 @@ type Ai struct {
 	rnd  *rand.Rand
 }
 
-func NewAi() *Ai {
+func NewAi(sign string) *Ai {
 	return &Ai{
-		sign: "O",
+		sign: sign,
 		rnd:  rand.New(rand.NewSource(time.Now().UnixNano())),
 	}
 }

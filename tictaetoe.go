@@ -11,16 +11,12 @@ func main() {
 	fmt.Println("Hello into tic-tac-toe game!!!")
 
 	f := field.NewField()
-	fmt.Println(f)
 
-	if err := f.Put("X", 1, 1); err != nil {
-		fmt.Println(err)
-		return
+	players := []player.Player{
+		player.NewAi("O"),
+		player.NewAi("X"),
 	}
 
-	fmt.Println(f)
-
-	players := []player.Player{player.NewAi()}
 	for _, p := range players {
 
 		x, y, sign := p.Move(f)
