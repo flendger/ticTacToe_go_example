@@ -2,29 +2,21 @@ package main
 
 import (
 	"fmt"
-	"ticTacToe/field"
+	"ticTacToe/game"
 	"ticTacToe/player"
 )
 
 func main() {
 
-	fmt.Println("Hello into tic-tac-toe game!!!")
+	fmt.Println("Welcome to tic-tac-toe game!!!")
 
-	f := field.NewField()
-
-	players := []player.Player{
+	players := &[]player.Player{
 		player.NewAi("O"),
 		player.NewAi("X"),
 	}
 
-	for _, p := range players {
+	g := game.NewGame(players)
+	result := g.Play()
 
-		x, y, sign := p.Move(f)
-		err := f.Put(sign, x, y)
-		if err != nil {
-			fmt.Println(err)
-		}
-
-		fmt.Println(f)
-	}
+	fmt.Println(result)
 }
