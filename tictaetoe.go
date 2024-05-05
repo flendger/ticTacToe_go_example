@@ -12,7 +12,7 @@ func main() {
 
 	players := &[]player.Player{
 		player.NewAi("O"),
-		player.NewAi("X"),
+		player.NewAnimal("X"),
 	}
 
 	g := game.NewGame(players)
