@@ -10,7 +10,7 @@ func main() {
 
 	fmt.Println("Welcome to tic-tac-toe game!!!")
 
-	players := &[]player.Player{
+	players := []player.Player{
 		player.NewAi("O"),
 		player.NewAnimal("X"),
 	}

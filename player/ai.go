@@ -18,7 +18,7 @@ func NewAi(sign string) *Ai {
 	}
 }
 
-func (a Ai) Move(f *field.Field) (x, y int, sign string) {
+func (a *Ai) Move(f *field.Field) (x, y int, sign string) {
 
 	sign = a.sign
 

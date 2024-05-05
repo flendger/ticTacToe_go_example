@@ -7,17 +7,14 @@ import (
 )
 
 type Game struct {
-	players *[]player.Player
+	players []player.Player
 	field   *field.Field
 }
 
-func NewGame(players *[]player.Player) *Game {
-
-	f := field.NewField()
-
+func NewGame(players []player.Player) *Game {
 	return &Game{
 		players: players,
-		field:   f,
+		field:   field.NewField(),
 	}
 }
 
@@ -27,7 +24,7 @@ func (game *Game) Play() (result string) {
 	f := game.field
 	for {
 
-		for _, p := range *game.players {
+		for _, p := range game.players {
 
 			x, y, sign := p.Move(f)
 

@@ -15,7 +15,7 @@ func NewField() *Field {
 	}
 }
 
-func (f Field) String() string {
+func (f *Field) String() string {
 
 	builder := strings.Builder{}
 
@@ -37,7 +37,7 @@ func (f Field) String() string {
 	return builder.String()
 }
 
-func (f Field) Put(sign string, x, y int) error {
+func (f *Field) Put(sign string, x, y int) error {
 
 	if err := checkCoords(x, y); err != nil {
 		return err
@@ -52,7 +52,7 @@ func (f Field) Put(sign string, x, y int) error {
 	return nil
 }
 
-func (f Field) Empty(x, y int) bool {
+func (f *Field) Empty(x, y int) bool {
 
 	if !validCellAddress(x) || !validCellAddress(y) {
 		return false
@@ -61,7 +61,7 @@ func (f Field) Empty(x, y int) bool {
 	return f.state[x-1][y-1] == ""
 }
 
-func (f Field) Sign(x, y int) (string, error) {
+func (f *Field) Sign(x, y int) (string, error) {
 
 	if err := checkCoords(x, y); err != nil {
 		return "", err
